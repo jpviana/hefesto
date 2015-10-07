@@ -1,0 +1,92 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/head2 %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header2 %>
+    </header>
+
+    <main>
+        <form action="/prestador/create" method="post">
+        <div class="well col-md-12">
+          <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-4 col-lg-4">
+              <input class="form-control" type="text" required="true" name="prestador[nome]" placeholder="Nome" >
+            </div>
+            <div class="col-xs-12 col-sm-10 col-md-4 col-lg-4">
+              <input class="form-control" type="text" name="prestador[email]" placeholder="E-mail">
+            </div>
+              <div class="form-group col-xs-12 col-sm-10 col-md-4 col-lg-4 ">
+                <select name="presta dor[servico]" class="form-control" required="true">
+                class="form-control"   <option value="">Escolha um tipo de serviço</option>
+                  <% tipoServicos.forEach( function( tipoServico ) { %>
+                  <option value="<%= tipoServico.descricao %>"> <%= tipoServico.descricao %></option>
+                  <% }); %>
+                </select>
+              </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-5 col-lg-4">
+              <input class="form-control" type="text" name="prestador[telefone]" placeholder="Telefone">
+            </div>
+            <div class="col-xs-12 col-sm-10 col-md-6 col-lg-4">  
+              <input class="form-control" type="text" name="prestador[atendimento]" placeholder="Atendimento">
+            </div>
+            <div class="col-xs-12 col-sm-10 col-md-6 col-lg-4">
+              <input class="form-control" type="text" name="prestador[formaPagamento]" placeholder="Forma de Pagamento">
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-5 col-lg-6">
+              <input class="form-control" type="text" name="prestador[endereco]" placeholder="Endereço">
+            </div>
+            <div class="col-xs-12 col-sm-10 col-md-6 col-lg-6">
+              <input class="form-control" type="text" name="prestador[observacao]" placeholder="Breve resumo do Prestador">
+            </div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-4 col-lg-4">
+              <h4><span> Escolha a foto</span></h4>
+              <input type="file" id="foto" onchange='loadImageFileAsURL();' accept='image/*' />
+            </div>
+            <div class="col-xs-12 col-sm-10 col-md-6 col-lg-4">
+              <input class="form-control" id="base64" type="hidden" name="prestador[foto]"/>
+            </div>
+          </div>
+
+          <!--<div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-6 col-lg-4">
+              <img id="imagemAtual"/>
+            </div>
+          </div>
+          <div class="row">
+          -->
+
+          </br>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-6 col-lg-4">
+              <button type="submit" class="btn btn-primary">SALVAR</button>
+            </div>
+          </div>
+
+          </div>
+        </div>
+    </form>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    
+</body>
+</html>

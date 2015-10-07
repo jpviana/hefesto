@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body id="top" data-spy="scroll" data-target=".navbar" data-offset="260">
+
+        <% include ../partials/header2 %>
+
+<section id="teaser" style="height:260px !important; padding: 20px 0 !important;">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="reservation-form-shadow" style="height: 220px;">
+                    <form action="/pesquisa" method="get" name="car-select-form" class="form-inline">
+                        <div class="alert alert-danger hidden" id="car-select-form-msg">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <strong>Aviso:</strong> Digite algum valor na sua pesquisa
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                          <div class="styled-select-car">
+                           <select name="servico" class="form-control">
+                              <option value="">Escolha o serviço desejado</option>
+                              <% tipoServicos.forEach( function( tipoServico ) { %>
+                              <option value="<%= tipoServico.descricao %>"> <%= tipoServico.descricao %></option>
+                              <% }); %>
+                            </select>
+                          </div>
+                        </div> 
+                       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                       <div class="location">
+                            <div class="input-group pick-up">
+                                <span class="input-group-addon" style="height: 55px;"><span class="glyphicon glyphicon-user"></span> Pessoa</span>
+                                <input type="text" name="pesquisa" id="pick-up-location" class="form-control autocomplete-location" placeholder="Digite o nome do prestador" style="height: 55px;">
+                            </div>
+                            <!-- Pick-up location end -->
+                        </div>
+                       </div> 
+                         
+
+                        <!-- Pick-up location start -->
+                        <center>
+                            <input type="submit" class="submit" name="submit" value="Pesquisar" id="checkoutModalLabel">
+                        </center>
+                    </form>
+
+                </div>
+            </div>
+           
+    </div>
+</section>
+
+    
+    <!--<div id="pesqusa" class="form-group">
+      <form method="get" action="/prestador/pesquisa" class="form-inline">
+        <output name="porNome" value="Pesquise por nome"/>
+        <input name="pesquisa" type="text" value="" class="form-control" placeholder="Pesquise por Nome">
+        <select name="servico" class="form-control">
+              <option value="">Escolha um tipo de serviço para pesquisa</option>
+              <% tipoServicos.forEach( function( tipoServico ) { %>
+              <option value="<%= tipoServico.descricao %>"> <%= tipoServico.descricao %></option>
+              <% }); %>
+        </select>
+            <button type="submit" class="btn btn-default dropdown-toggle" >Pesquisar </button>
+      </form>
+    </div>-->
+<div class="row">
+  <div class="container" style="padding: 10px;">
+        
+              <%if (prestadores=='') { %>
+                <span> Prestador(es) não encontrado(s) !</span>
+              <% } %>
+             
+                <% prestadores.forEach( function( prestador ) { %>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                 <ul style=" list-style-type: none; padding:10px;   border: 1px solid  #ddd; ">
+                    <li class="laa" style="padding-bottom:5px;"> <%= prestador.nome %> </li>
+                    <li style="padding-bottom:2px;"><span class="baa">Telefone:</span> <%= prestador.telefone %> </li>
+                    <li style="padding-bottom:2px;"><span class="baa">Servico:</span> <%= prestador.servico %> </li>
+                   
+                    <% if(user != undefined){ %>
+                    <button type="button" class="btn btn-danger btn-lg" onclick="window.location.href='/prestador/delete/<%= prestador._id %>'" >Excluir</button>
+                    <% } %> 
+                    <button type="button" class="btn btn-info btn-lg" onclick="javascript:detalhaPrestador('<%= prestador._id %>')" data-toggle="modal" data-target="#myModal">Ver Prestador</button>
+                     <br/>
+                    </ul>
+                    </div>  
+                    <% }); %>
+          
+        </div>
+      </div>
+<div id="myModal" class="modal fade" role="dialog" >
+  <div class="modal-dialog modal-lg" >
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Detalhes do Prestador</h4>
+      </div>
+      <div class="modal-body">
+         <div id="dadosDetalhar">
+         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+
+<footer> 
+    <% include ../partials/footer %>
+</html>

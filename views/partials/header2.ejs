@@ -1,0 +1,115 @@
+<header data-spy="affix" data-offset-top="39" data-offset-bottom="0" class="large">
+
+    <div class="row container box">
+        <div class="col-md-5">
+            <!-- Logo start -->
+            <div class="brand">
+                <h1><a class="scroll-to" href="#top"><img class="img-responsive" src="theme/img/logo.png" alt="TCC"></a></h1>
+            </div>
+            <!-- Logo end -->
+        </div>
+
+        <div class="col-md-7">
+            <div class="pull-right">
+                <div class="header-info pull-right">
+                    <div class="contact pull-left">CONTATO: (034) 0000-0000</div>
+
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+            <!-- start navigation -->
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <!-- Toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand scroll-to" href="#top"><img class="img-responsive"  src="img/logo.png" alt="TCC"></a>
+                    </div>
+                    <!-- Collect the nav links, for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <!-- Nav-Links start -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active"><a href="../#top" class="scroll-to">INICIO</a></li>
+                            <li><a href="../#services" class="scroll-to">PRESTADORES</a></li>
+                            <li><a href="../#information" class="scroll-to">SOBRE</a></li>
+                            <li><a href="../#partners" class="scroll-to">PARCEIROS</a></li>
+                            <li><a href="../#contact" class="scroll-to">CONTATO</a></li>
+
+                            <% if(user != undefined){ %>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ADM <span class="caret"></span></a>
+
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="/prestador/create">Cadastrar Prestadores</a></li>
+                                                <li><a href="/prestador">Ver Prestadores</a></li>
+                                                <li><a href="/logout">Deslogar</a></li>
+                                            </ul>
+                                    </li>
+                            <% } %>
+
+                            <li class="dropdown">
+                                <% if(user == undefined){ %>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">LOGIN <span class="caret"></span></a>
+
+                                    <ul class="dropdown-menu" role="menu">
+                                    <form method="POST" action="/login">
+                                        <div class="form-group">
+                                            <label for="email">Email:</label>
+                                            <input type="email" class="form-control" name="email">
+                                        </div>
+                                       <div class="form-group">
+                                            <label for="pass">Senha:</label>
+                                            <input type="password" class="form-control" name="password">
+                                        </div>
+                                        <input type="submit" class="btn submit-message btn-block" name="submit-message" value="ENTRAR">
+                                    </form>
+                                    </ul>
+                                    <% } %>
+                            </li>
+                        </ul>
+                        <!-- Nav-Links end -->
+                    </div>
+                </div>
+            </nav>
+            <!-- end navigation -->
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+<!-- views/partials/header.ejs 
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <span class="glyphicon glyphicon glyphicon-tree-deciduous"></span>
+                Ux Soluções
+            </a>
+        </div>
+
+        <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/sobre">Sobre</a></li>
+            <li><a href="/prestador">Prestadores</a></li>
+            <% if(user != undefined){ %>
+                <li><a href="/prestador/create">Cadastrar Prestador</a></li>
+            <% } %>
+            <li><a href="/login">Login</a></li>
+        </ul>
+      
+    </div>
+</nav>
+-->

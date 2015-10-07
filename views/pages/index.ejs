@@ -1,0 +1,37 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>Portal de Serviço</h1>
+            <p>Seu portal local de serviço</p>
+        </div>
+        <div class="jumbotron text-center">
+            <h1><span class="fa fa-lock"></span> Portal De serviços</h1>
+
+            <p>Entrar ou Registrar:</p>
+
+            <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Login</a>
+            <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Registrar</a>
+            <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Entrar com Facebook</a>
+            <a href="/prestador" class="btn btn-primary"><span class="fa fa-user"></span> Prestadores</a>
+         </div>
+
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    
+</body>
+</html>

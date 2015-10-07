@@ -1,0 +1,103 @@
+var validator = require( 'validator' );
+var CPF = require( 'cpf_cnpj' ).CPF;
+var CNPJ = require( 'cpf_cnpj' ).CNPJ;
+var _ = require( 'underscore' );
+var moment = require( 'moment' );
+var DateHelper  = require( './dateHelper' )();
+
+module.exports = function() {
+
+    var Validator = {
+
+        getValidator : function(){
+            validator.extend( 'isCPF', function( value ) {
+                return CPF.isValid( value );
+            });
+            validator.extend( 'isCNPJ', function( value ) {
+                return CNPJ.isValid( value );
+            });
+            validator.extend( 'isValidValue', function( value ) {
+               return value !== null && value !== undefined && value !== "" && value !== "undefined" && value !== "null";
+            });
+
+            validator.extend( 'areValidValues', function( values ) {
+                values = values.split( ',' );
+
+                for( var i in values ) {
+                    if( !validator.isValidValue( values[i] ) ){ 
+                        return false;
+                    }
+                }
+
+                return true;
+            });
+
+            validator.extend( 'isInsideOnDateRange', function( date, range ) {
+               
+                if( !validator.isValidValue( range ) ){
+                    return true;
+                }
+
+                var newRange = DateHelper.recuperarDataInicioDataFimStringPeriodo( range );
+
+                if( moment( date ).isAfter( newRange.dataInicio ) &&
+                        moment( date ).isBefore( newRange.dataFim ) ){
+                    return true;
+                }
+                return false;
+
+            });
+
+            return validator;
+        }
+    };
+
+    return Validator;
+
+
+
+
+
+
+
+    delete: function(req, res) {
+      var _id;
+      _id = req.params.id;
+      PrestadorModel.findById(_id, function(err, prestador) {
+        if (err) {
+          return res.send(500);
+        } else {
+          if (usuario !== null) {
+            return prestador.remove(function(err) {
+              if (err) {
+                if (err) {
+                  return res.send(500);
+                }
+              } else {
+                console.log("Removido");
+                return res.send(200);
+              }
+            });
+          }
+        }
+      });
+    };
+
+    single: function(req, res) {
+      var _id;
+      _id = req.params.id;
+      console.log("id " + req.params.id);
+      return PrestadorModel.findById(_id, function(err, prestador) {
+        if (err) {
+          return console.log("Erro " + err);
+        } else {
+          console.log("prestador" + prestador);
+          return res.send(prestador);
+        }
+      });
+    };
+
+    }
+    }
+    return PrestadorController;
+}

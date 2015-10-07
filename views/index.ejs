@@ -1,0 +1,284 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <% include /partials/head %>
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar" data-offset="260">
+
+    <header>
+        <% include /partials/header %>
+    </header>
+
+    <section id="teaser">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-md-5 col-xs-12 pull-left">
+                <div class="reservation-form-shadow">
+
+                    <form action="/pesquisa" method="get" name="car-select-form" id="car-select-form">
+
+                        <div class="alert alert-danger hidden" id="car-select-form-msg">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <strong>Note:</strong> All fields required!
+                        </div>
+
+                     
+                         <div class="styled-select-car">
+                           <select name="servico" class="form-control">
+                              <option value="">Escolha o serviço desejado</option>
+                              <% tipoServicos.forEach( function( tipoServico ) { %>
+                              <option value="<%= tipoServico.descricao %>"> <%= tipoServico.descricao %></option>
+                              <% }); %>
+                        </select>
+                        </div>
+
+                        <!-- Pick-up location start -->
+                        <div class="location">
+                            <div class="input-group pick-up">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span> Pessoa</span>
+                                <input type="text" name="pesquisa" id="pick-up-location" class="form-control autocomplete-location" placeholder="Digite o nome do prestador">
+                            </div>
+                            <!-- Pick-up location end -->
+                        </div>
+                        <input type="submit" class="submit" name="submit" value="Pesquisar" id="checkoutModalLabel">
+                    </form>
+
+                </div>
+            </div>
+<div class="col-md-7 col-xs-12 pull-right hidden-xs hidden-md">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <!-- Wrapper for slides start -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <h1 class="title">OFEREÇA SEUS SERVIÇOS AQUI
+                                <span class="subtitle"></span></h1>
+                            <div class="car-img">
+                                <img src="theme/img/car1.png" class="img-responsive" alt="car1">
+                            </div>
+                        </div>
+                        <div class="item">
+                            <h1 class="title">GANHE MAIS VISIBILIDADE
+                                <span class="subtitle"></span></h1>
+                            <div class="car-img">
+                                <img src="theme/img/car2.png" class="img-responsive" alt="car1">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Wrapper for slides end -->
+
+                    <!-- Slider Controls start -->
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                    <!-- Slider Controls end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="arrow-down"></div>
+<!-- Teaser end -->
+
+
+
+<!-- Services start -->
+<section id="services" class="container">
+    <div class="row">
+        <div class="col-md-12 title">
+            <h2>PRESTADORES</h2>
+            <span class="underline">&nbsp;</span>
+        </div>
+
+        <!-- Service Box start -->
+        <div class="col-md-6">
+            <div class="service-box wow fadeInLeft" data-wow-offset="100">
+                <div class="service-icon">+</div>
+                <h3 class="service-title">COZINHEIROS</h3>
+                <div class="clearfix"></div>
+                <p class="service-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed  nonumy eirmod tempor invidunt ut labore et dolore magnaed aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
+                <a href="" class="btn submit-message btn-block"   >VER TODOS</a>
+            </div>
+        </div>
+        <!-- Service Box end -->
+
+        <!-- Service Box start -->
+        <div class="col-md-6">
+            <div class="service-box wow fadeInRight" data-wow-offset="100">
+                <div class="service-icon">+</div>
+                <h3 class="service-title">PASSADEIRAS</h3>
+                <div class="clearfix"></div>
+                <p class="service-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed  nonumy eirmod tempor invidunt ut labore et dolore magnaed aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
+                <a href="" class="btn submit-message btn-block"   >VER TODOS</a>
+            </div>
+        </div>
+        <!-- Service Box end -->
+
+        <!-- Service Box start -->
+        <div class="col-md-6">
+            <div class="service-box wow fadeInLeft" data-wow-offset="100">
+                <div class="service-icon">+</div>
+                <h3 class="service-title">DIARISTAS</h3>
+                <div class="clearfix"></div>
+                <p class="service-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed  nonumy eirmod tempor invidunt ut labore et dolore magnaed aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
+                <a href="" class="btn submit-message btn-block"   >VER TODOS</a>
+            </div>
+        </div>
+        <!-- Service Box end -->
+
+        <!-- Service Box start -->
+        <div class="col-md-6">
+            <div class="service-box wow fadeInRight" data-wow-offset="100">
+                <div class="service-icon">+</div>
+                <h3 class="service-title">MONTADOR DE MÓVEIS</h3>
+                <div class="clearfix"></div>
+                <p class="service-content">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed  nonumy eirmod tempor invidunt ut labore et dolore magnaed aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.</p>
+                 <a href="" class="btn submit-message btn-block"   >VER TODOS</a>
+            </div>
+        </div>
+        <!-- Service Box end -->
+
+    </div>
+</section>
+<!-- Services end -->
+
+
+
+<!-- Newsletter start -->
+<section id="newsletter" class="wow slideInLeft" data-wow-offset="300">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12"><div class="alert hidden" id="newsletter-form-msg"></div></div>
+            <div class="col-md-5 col-xs-12">
+                <h2 class="title">OFEREÇA SEU SERVIÇO AQUI
+                    <span class="subtitle">ganhe uma área no site para oferecer seus serviços</span></h2>
+            </div>
+            <div class="col-md-7">
+                <div class="newsletter-form pull-left">
+                    <form action="#" method="post" name="newsletter-form" id="newsletter-form">
+                        <input type="hidden" name="action" value="send_newsletter_form"/>
+                        <div class="input-group">
+                            <input type="email" name="newsletter-email" class="form-control" placeholder="Digite seu email">
+                        <span class="input-group-btn">
+                          <input class="btn btn-default button" type="submit" value="Enviar">
+                        </span>
+                        </div>
+                    </form>
+                </div>
+                <div class="social-icons pull-right">
+                    <ul>
+                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Newsletter end -->
+
+<!-- Information start -->
+<section id="information" class="container">
+
+    <!-- Video start -->
+    <div class="row wow fadeInRight" data-wow-offset="50">
+        <div class="col-md-6">
+            <div class="video">
+                <!-- Youtube iframe start -->
+                <iframe width="420" height="315" src="https://www.youtube.com/embed/JEjnhmoKWM8" frameborder="0" allowfullscreen></iframe>
+                <!-- Youtube iframe end -->
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2 class="title">TOUR INFORMATIVO</h2>
+            <h3 class="subtitle">VEJA O QUE NOS PODEMOS LHE OFERECES</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eros elit, ornare id posuere id, fringilla id diam. Vestibulum et venenatis nisl. </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eros elit, ornare id posuere id, fringilla id diam. Vestibulum et venenatis nisl. </p>
+        </div>
+    </div>
+    <!-- Video end -->
+
+</section>
+<!-- Information end -->
+
+<!-- Partners start -->
+<section id="partners" class="wow fadeIn" data-wow-offset="50">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2>PACEIROS</h2>
+                <span class="underline">&nbsp;</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eros elit, ornare id posuere id, fringilla id diam. Vestibulum et venenatis nisl. Aliquam et rhoncus purus. Etiam venenatis diam et lorem porttitor facilisis. Nunc non imperdiet risus, sed vehicula ante. Sed egestas, mi vitae maximus porta, felis turpis condimentum sapien, eu ultrices turpis tortor et nulla. Nullam elit massa, elementum id nisi ac, mattis congue ipsum. Quisque eu massa est. Proin eget luctus dui. Vivamus vestibulum urna mauris, at mattis ante euismod eget. Etiam mattis a nisi nec vulputate. Ut viverra et massa at varius.</p>
+            </div>
+            <div class="col-md-3 col-xs-6 text-center">
+                <img src="theme/img/partner1.png" alt="Partner" class="img-responsive wow fadeInUp" data-wow-delay="0.5s" data-wow-offset="200">
+            </div>
+            <div class="col-md-3 col-xs-6 text-center">
+                <img src="theme/img/partner1.png" alt="Partner" class="img-responsive wow fadeInUp" data-wow-delay="1s" data-wow-offset="200">
+            </div>
+            <div class="col-md-3 col-xs-6 text-center">
+                <img src="theme/img/partner1.png" alt="Partner" class="img-responsive wow fadeInUp" data-wow-delay="1.5s" data-wow-offset="200">
+            </div>
+            <div class="col-md-3 col-xs-6 text-center">
+                <img src="theme/img/partner1.png" alt="Partner" class="img-responsive wow fadeInUp" data-wow-delay="2s" data-wow-offset="200">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Partners end -->
+
+<!-- Contact start -->
+<section id="contact" class="container wow bounceInUp" data-wow-offset="50">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>CONTATO</h2>
+        </div>
+        <div class="col-md-8 col-xs-12 pull-left">
+            <p class="contact-info">Você tem dúvidas e precisa de mais informações? <br>
+                
+            <form action="#" method="post" id="contact-form" name="contact-form">
+                <input type="hidden" name="action" value="send_contact_form"/>
+
+                <div class="alert hidden" id="contact-form-msg"></div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control first-name text-field" name="first-name" placeholder="Nome">
+                    <input type="text" class="form-control last-name text-field" name="last-name" placeholder="Sobrenome">
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="form-group">
+                    <input type="tel" class="form-control telephone text-field" name="telephone" placeholder="Telefone">
+                </div>
+
+                <div class="form-group">
+                    <input type="email" class="form-control email text-field" name="email" placeholder="Email">
+                </div>
+
+                <div class="form-group">
+                    <textarea class="form-control message" name="message" placeholder="Mensagem:"></textarea>
+                </div>
+
+                <input type="submit" class="btn submit-message" name="submit-message" value="Enviar Mensagem">
+
+
+            </form>
+        </div>
+    </div>
+</section>
+<!-- Contact end -->
+
+<a href="#" class="scrollup">ScrollUp</a>
+
+    <footer>
+        <% include /partials/footer %>
+    </footer>
+    
+</body>
+</html>
