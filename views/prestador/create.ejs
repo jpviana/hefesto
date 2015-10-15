@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <% include ../partials/head2 %>
+    <% include ../partials/head %>
 </head>
 <body class="container">
 
@@ -22,7 +22,7 @@
               <input class="form-control" type="text" name="prestador[email]" placeholder="E-mail">
             </div>
               <div class="form-group col-xs-12 col-sm-10 col-md-4 col-lg-4 ">
-                <select name="presta dor[servico]" class="form-control" required="true">
+                <select name="prestador[servico]" class="form-control" required="true">
                 class="form-control"   <option value="">Escolha um tipo de serviço</option>
                   <% tipoServicos.forEach( function( tipoServico ) { %>
                   <option value="<%= tipoServico.descricao %>"> <%= tipoServico.descricao %></option>

@@ -107,6 +107,7 @@ module.exports = function(app){
 	 	
 	create: function(req, res) {
         var prestador = new PrestadorModel(req.body.prestador);
+        console.log(req.body.servico);
         prestador.save(function(err, result) {
         	if (err) {
         		console.log('erro', err);
