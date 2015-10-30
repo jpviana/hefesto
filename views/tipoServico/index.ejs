@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body id="top" data-spy="scroll" data-target=".navbar" data-offset="260">
+
+        <% include ../partials/header2 %>
+
+<section id="teaser" style="height:260px !important; padding: 20px 0 !important;">
+    <div class="container">
+      
+      <div class="row">
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="reservation-form-shadow" style="height: 220px;">
+                    <form action="/tipoServico/pesquisa" method="get" name="ts" class="form-inline">
+                       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                       <div class="location">
+                            <div class="input-group pick-up">
+                                <input type="text" name="pesquisa" id="pick-up-location" class="form-control" placeholder="Pesquisar os tipos de serviços"/>
+                            </div>
+                            <!-- Pick-up location end -->
+                        </div>
+                       </div> 
+                         
+
+                        <!-- Pick-up location start -->
+                        <center>
+                            <input type="submit" class="submit" name="submit" value="Pesquisar" id="checkoutModalLabel">
+                        </center>
+                    </form>
+
+                </div>
+            </div>
+           
+    </div>       
+    </div>
+</section>
+
+    
+    
+<div class="row">
+  <div class="container" style="padding: 10px;">
+        
+             
+                <% tipoServicos.forEach( function( tipoServico ) { %>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                 <ul style=" list-style-type: none; padding:10px;   border: 1px solid  #ddd; ">
+                    <li class="laa" style="padding-bottom:5px;"> <%= tipoServico.descricao %> </li>
+                    
+                    <button type="button" class="btn btn-danger btn-lg" onclick="confirmacao('<%= tipoServico._id %>')" >Excluir</button>
+                     <br/>
+                    </ul>
+                    </div>  
+                    <% }); %>
+              
+              <script type="text/javascript">
+                      function confirmacao(id){
+                        var confirmacao = confirm("Deseja Excluir")
+                        if (confirmacao) {
+                          window.location.href='/tipoServico/delete/' + id
+                        }
+                      }
+                    </script>
+        </div>
+      </div>
+
+</body>
+
+<footer> 
+    <% include ../partials/footer %>
+</html>

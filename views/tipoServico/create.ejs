@@ -1,0 +1,39 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header2 %>
+    </header>
+
+    <main>
+        <form action="/tipoServico/create" method="post">
+
+        <div class="well col-md-12">
+        <span><h3>Cadastro dos tipos de serviços</h3></span>
+          <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-4 col-lg-4">
+              <input class="form-control" type="text" required="true" name="tipoServico[descricao]" placeholder="Descrição" >
+            </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-6 col-lg-4">
+              <button type="submit" class="btn btn-primary">SALVAR</button>
+            </div>
+          </div>
+
+          </div>
+        </div>
+    </form>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    
+</body>
+</html>

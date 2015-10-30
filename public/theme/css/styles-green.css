@@ -239,14 +239,14 @@ header.small .brand {
   width: 50%;
 }
 header.large {
-  height: 120px;
+  height: 160px;
   box-shadow: none;
 }
 header.large .header-info {
   display: block;
 }
 header.large .brand {
-  margin: 45px 0 0 0;
+  margin: 0;
   width: 100%;
 }
 /* Teaser
