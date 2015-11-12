@@ -11,7 +11,7 @@ Comentario = require('../models/comentario');
 module.exports = function (app) {
 
     var PrestadorController = {
-        util: {
+        /*util: {
             criarPrestadorDefaul: function () {
                 PrestadorModel.find(function (err, prestadores) {
                     if (err) {
@@ -38,7 +38,7 @@ module.exports = function (app) {
                         });
                     }
                 });
-            }/*,
+            },
             criarTipoServicosDefaul: function () {
                 TipoServicoModel.remove(function (err, tipoServicos) {
                     if (err) {
@@ -60,9 +60,9 @@ module.exports = function (app) {
                         });
                     }
                 });
-            }*/
+            }
 
-        },
+        },*/
         web: {
             index: function (req, res) {
                 PrestadorModel.find({}, {foto: 0}, function (err, prestadores) {

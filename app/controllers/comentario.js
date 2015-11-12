@@ -30,7 +30,8 @@ module.exports = function (app) {
             create: function (req, res) {
                 var ComentarioObj = {
                     idPrestador: req.body._id,
-                    comentario: req.body.comentario
+                    comentario: req.body.comentario,
+                    autor: req.body.autor
                 }
                 var comentario = new ComentarioModel(ComentarioObj);
                 console.log(ComentarioObj);

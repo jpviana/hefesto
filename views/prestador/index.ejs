@@ -81,9 +81,9 @@
                     <li style="padding-bottom:2px;"><span class="baa">Servico:</span> <%= prestador.servico %> </li>
                    
                     <% if(user != undefined){ %>
-                    <button type="button" class="btn btn-danger btn-lg" onclick="window.location.href='/prestador/delete/<%= prestador._id %>'" >Excluir</button>
+                    <button type="button" class="btn btn-danger btn-lg" onclick="confirmar('<%= prestador._id %>')">Excluir</button>
                     <% } %> 
-                    <button type="button" class="btn btn-info btn-lg" onclick="javascript:detalhaPrestador('<%= prestador._id %>')" data-toggle="modal" data-target="#myModal">Ver Prestador</button>
+                    <button type="button" class="btn btn-info btn-lg" onclick="javascript:detalhaPrestador('<%= prestador._id %>')" data-toggle="modal" data-target="#myModal" id="botao_<%= prestador._id %>">Ver Prestador</button>
                      <br/>
                     </ul>
                     </div>  
@@ -91,6 +91,24 @@
           
         </div>
       </div>
+
+      <script type="text/javascript">
+              function confirmar(id){
+              $.confirm({
+                  title: 'Exclusão!',
+                  content: 'Deseja Excluir?',
+                  confirmButton: 'Sim',
+                  cancelButton: 'Não',
+                    confirm: function(){
+                          window.location.href='/prestador/delete/' + id
+                        
+                      },
+                      cancel: function(){
+                      }
+              });
+              }
+              </script>
+
 <div id="myModal" class="modal fade" role="dialog" >
   <div class="modal-dialog modal-lg" >
 
@@ -116,6 +134,12 @@
   </div>
 </div>
 </body>
+
+<% if(prestador != ""){ %>
+  <script type="text/javascript">
+    $("#botao_<%=prestador%>").click();
+  </script>
+<% } %> 
 
 <footer> 
     <% include ../partials/footer %>

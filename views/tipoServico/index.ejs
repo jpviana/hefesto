@@ -50,20 +50,32 @@
                  <ul style=" list-style-type: none; padding:10px;   border: 1px solid  #ddd; ">
                     <li class="laa" style="padding-bottom:5px;"> <%= tipoServico.descricao %> </li>
                     
-                    <button type="button" class="btn btn-danger btn-lg" onclick="confirmacao('<%= tipoServico._id %>')" >Excluir</button>
+                    <button type="button" class="btn btn-danger btn-lg" onclick="confirmar('<%= tipoServico._id %>')" >Excluir</button>
                      <br/>
                     </ul>
                     </div>  
                     <% }); %>
               
               <script type="text/javascript">
-                      function confirmacao(id){
-                        var confirmacao = confirm("Deseja Excluir")
-                        if (confirmacao) {
+              function confirmar(id){
+              $.confirm({
+                  theme: 'hololight',
+                  animation: 'top',
+                  title: 'Exclusão!',
+                  content: 'Deseja Excluir?',
+                  confirmButton: 'Sim',
+                  cancelButton: 'Não',
+                  confirmButtonClass: 'btn-info',
+                  cancelButtonClass: 'btn-danger',
+                    confirm: function(){
                           window.location.href='/tipoServico/delete/' + id
-                        }
+                        
+                      },
+                      cancel: function(){
                       }
-                    </script>
+              });
+              }
+              </script>
         </div>
       </div>
 

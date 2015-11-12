@@ -5,7 +5,14 @@ mongoose = require("mongoose");
 Schema = mongoose.Schema;
 
 Comentario = new Schema({
+
+
   comentario: [
+    {
+      type: String
+    }
+  ],
+  autor: [
     {
       type: String
     }
