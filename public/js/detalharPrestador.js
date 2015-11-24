@@ -37,7 +37,8 @@ detalhaPrestador = function(id){
             success: function(data2){
               for(var i in data2){
                 html+= "<div id='comentario'><span>Autor: "+data2[i].autor+"</span></br></div>";
-                html+= "<div id='comentario'><span>Mensagem: "+data2[i].comentario+"</span></br></div><hr/>";
+                html+= "<div id='comentario'><span>Mensagem: "+data2[i].comentario+"</span></br>";
+                html+= " <button type='button' class='btn btn-danger btn-lg' onclick='confirmar2('/comentario/delete"+data2[i]._id+"')'>Excluir</button></div><hr/>";
               }
               $("#dadosDetalhar").html(html);
             },

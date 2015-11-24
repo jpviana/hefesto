@@ -124,6 +124,29 @@ module.exports = function (app) {
                     }
                 });
             },
+
+            edit: function(req, res){
+                var id;
+                
+                var prestador = new PrestadorModel(req.body.prestador);
+                PrestadorModel.findById(_id, function(erro, prestador) {
+                var resultado = {prestador: prestador};
+                res.render('prestador/edit', resultado);
+              });
+            },
+
+            update: function(req, res) {
+              id =req.params.id;
+              var prestador = new PrestadorModel(req.body.prestador);
+              PrestadorModel.findById(_id, function(erro, prestador) {
+                prestador.nome = req.body.prestador.nome;
+                prestador.email = req.body.prestador.email;
+                prestador.save(function() {
+                  res.redirect('/prestador');
+                });
+              });
+            },
+
             single: function (req, res) {
                 var _id;
                 _id = req.params.id;

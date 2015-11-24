@@ -45,12 +45,14 @@ module.exports = function (app) {
     app.post('/prestador/create', isLoggedIn, PrestadorController.api.create);
     app.get('/prestador/delete/:id', isLoggedIn, PrestadorController.api.delete);
     app.get('/prestador/single/:id', PrestadorController.api.single);
+    app.get('/prestador/:id/editar', isLoggedIn, PrestadorController.api.edit);
+    app.put('/prestador/:id', isLoggedIn, PrestadorController.api.update);
     //app.get('/prestador/pesquisa', PrestadorController.api.pesquisa);
     app.get('/pesquisa', PrestadorController.api.pesquisa);
     //comentarios
     app.post('/comentario/create', ComentarioController.api.create);
     app.get('/comentario/index/:_id', ComentarioController.web.index);
-    app.get('comentario/delete/:id', isLoggedIn, ComentarioController.api.delete);
+    app.get('/comentario/delete/:id', isLoggedIn, ComentarioController.api.delete);
     //tipoServico
     app.get('/tipoServico/create', isLoggedIn, TipoServicoController.web.create);
     app.post('/tipoServico/create', isLoggedIn, TipoServicoController.api.create);

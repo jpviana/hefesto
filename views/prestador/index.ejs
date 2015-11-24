@@ -82,7 +82,8 @@
                    
                     <% if(user != undefined){ %>
                     <button type="button" class="btn btn-danger btn-lg" onclick="confirmar('<%= prestador._id %>')">Excluir</button>
-                    <% } %> 
+                    <% } %>
+                    <a href="/prestador/<%= prestador._id %>/editar">Editar</a> 
                     <button type="button" class="btn btn-info btn-lg" onclick="javascript:detalhaPrestador('<%= prestador._id %>')" data-toggle="modal" data-target="#myModal" id="botao_<%= prestador._id %>">Ver Prestador</button>
                      <br/>
                     </ul>
@@ -101,6 +102,21 @@
                   cancelButton: 'Não',
                     confirm: function(){
                           window.location.href='/prestador/delete/' + id
+                        
+                      },
+                      cancel: function(){
+                      }
+              });
+              }
+
+              function confirmar2(id){
+              $.confirm({
+                  title: 'Exclusão!',
+                  content: 'Deseja Excluir?',
+                  confirmButton: 'Sim',
+                  cancelButton: 'Não',
+                    confirm: function(){
+                          window.location.href='/comentario/delete/' + id
                         
                       },
                       cancel: function(){
