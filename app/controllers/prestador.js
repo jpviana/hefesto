@@ -126,21 +126,36 @@ module.exports = function (app) {
             },
 
             edit: function(req, res){
-                var id;
-                
+                var _id;
+                _id = req.params.id;
                 var prestador = new PrestadorModel(req.body.prestador);
                 PrestadorModel.findById(_id, function(erro, prestador) {
-                var resultado = {prestador: prestador};
-                res.render('prestador/edit', resultado);
+                    TipoServicoModel.find({}, function (err, tipoServicos) {
+                    console.log('err:', JSON.stringify(err), 'serv:', JSON.stringify(tipoServicos));
+                    if (err) {
+                        throw err;
+                    }
+
+                    var resultado = {prestador: prestador, user:req.user, tipoServicos: tipoServicos};
+                    res.render('prestador/edit', resultado);
+                });
+                
               });
             },
 
             update: function(req, res) {
-              id =req.params.id;
+              _id = req.params.id;
               var prestador = new PrestadorModel(req.body.prestador);
               PrestadorModel.findById(_id, function(erro, prestador) {
                 prestador.nome = req.body.prestador.nome;
                 prestador.email = req.body.prestador.email;
+                prestador.servico = req.body.prestador.servico;
+                prestador.telefone = req.body.prestador.telefone;
+                prestador.atendimento = req.body.prestador.atendimento;
+                prestador.formaPagamento = req.body.prestador.formaPagamento;
+                prestador.endereco = req.body.prestador.endereco;
+                prestador.observacao = req.body.prestador.observacao;
+                prestador.foto = req.body.prestador.foto;
                 prestador.save(function() {
                   res.redirect('/prestador');
                 });
